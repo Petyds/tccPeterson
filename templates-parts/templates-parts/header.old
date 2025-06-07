@@ -1,0 +1,183 @@
+<?php
+// Get the current script name
+$current_page = basename($_SERVER['PHP_SELF']);
+
+// --- Detecção do Ambiente e Definição do Caminho Base ---
+$base_url = ''; // Inicializa a variável do caminho base
+
+// Verifica se está em ambiente de desenvolvimento (localhost)
+if ($_SERVER['HTTP_HOST'] === 'localhost' || $_SERVER['SERVER_NAME'] === 'localhost') {
+    // Para desenvolvimento: http://localhost/site/
+    $base_url = '/site';
+} else {
+    // Para produção: https://fabianomaximiano.com.br/peterson/
+    $base_url = '/peterson';
+}
+
+// Set dynamic title based on the current page
+$title = "Mediplus - login"; // Default title
+switch ($current_page) {
+    case 'admin.php':
+        $title = "Painel do administrador";
+        break;
+    case 'agendar_consulta.php':
+        $title = "Agendar consulta";
+        break;
+    case 'agendar_exame.php':
+        $title = "Agendar exame";
+        break;
+    case 'listar_usuarios.php':
+        $title = "Listar usuários";
+        break;
+    case 'comentario_paciente.php':
+        $title = "Comentário paciente";
+        break;
+    case 'medico.php':
+        $title = "Painel do médico";
+        break;
+    case 'paciente.php':
+        $title = "Painel do paciente";
+        break;
+    case 'recepcionista.php':
+        $title = "Painel da Recepcionista";
+        break;
+    // Add more cases for other pages if needed
+}
+?>
+<!doctype html>
+<html class="no-js" lang="zxx">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="keywords" content="Site keywords here">
+        <meta name="description" content="">
+        <meta name='copyright' content=''>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+        <title><?php echo $title; ?></title>
+        
+        <link rel="icon" href="<?php echo $base_url; ?>/templates-parts/assets/img/favicon.png">
+        
+        <link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="<?php echo $base_url; ?>/templates-parts/assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="<?php echo $base_url; ?>/templates-parts/assets/css/nice-select.css">
+        <link rel="stylesheet" href="<?php echo $base_url; ?>/templates-parts/assets/css/font-awesome.min.css">
+        <link rel="stylesheet" href="<?php echo $base_url; ?>/templates-parts/assets/css/icofont.css">
+        <link rel="stylesheet" href="<?php echo $base_url; ?>/templates-parts/assets/css/slicknav.min.css">
+        <link rel="stylesheet" href="<?php echo $base_url; ?>/templates-parts/assets/css/owl-carousel.css">
+        <link rel="stylesheet" href="<?php echo $base_url; ?>/templates-parts/assets/css/datepicker.css">
+        <link rel="stylesheet" href="<?php echo $base_url; ?>/templates-parts/assets/css/animate.min.css">
+        <link rel="stylesheet" href="<?php echo $base_url; ?>/templates-parts/assets/css/magnific-popup.css">
+        <link rel="stylesheet" href="<?php echo $base_url; ?>/templates-parts/assets/css/normalize.css">
+        <link rel="stylesheet" href="<?php echo $base_url; ?>/templates-parts/assets/css/style.css">
+        <link rel="stylesheet" href="<?php echo $base_url; ?>/templates-parts/assets/css/responsive.css">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css">
+		<link rel="stylesheet" href="/site/templates-parts/assets/css/custom.css">
+        <style>
+        /* Garante que o botão 'painel do cliente' esteja sempre visível */
+        .header .get-quote .btn {
+            opacity: 1 !important; /* Força a visibilidade, ignorando outras regras */
+            visibility: visible !important; /* Garante que não esteja escondido */
+            display: inline-block !important; /* Garante que ocupe espaço, se for display: none */
+        }
+    </style>
+    </head>
+    <body>
+    
+        <div class="preloader">
+            <div class="loader">
+                <div class="loader-outter"></div>
+                <div class="loader-inner"></div>
+
+                <div class="indicator"> 
+                    <svg width="16px" height="12px">
+                        <polyline id="back" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+                        <polyline id="front" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <ul class="pro-features">
+            <li class="big-title">Pro Version Available on Themeforest</li>
+            <li class="title">Pro Version Features</li>
+            <li>2+ premade home pages</li>
+            <li>20+ html pages</li>
+            <li>Color Plate With 12+ Colors</li>
+            <li>Sticky Header / Sticky Filters</li>
+            <li>Working Contact Form With Google Map</li>
+            <div class="button">
+                <a href="http://preview.themeforest.net/item/mediplus-medical-and-doctor-html-template/full_screen_preview/26665910?_ga=2.145092285.888558928.1591971968-344530658.1588061879" target="_blank" class="btn">Pro Version Demo</a>
+                <a href="https://themeforest.net/item/mediplus-medical-and-doctor-html-template/26665910" target="_blank" class="btn">Buy Pro Version</a>
+            </div>
+        </ul>
+    
+        <header class="header" >
+            <div class="topbar">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-5 col-12">
+                            <ul class="top-link">
+                                <li><a href="<?php echo $base_url; ?>/default.php">Home</a></li>
+                                <li><a href="<?php echo $base_url; ?>/doutores.php">Doutores</a></li>
+                                <li><a href="<?php echo $base_url; ?>/contato.php">Contato</a></li>
+                                <li><a href="#">FAQ</a></li>
+                            </ul>
+                            </div>
+                        <div class="col-lg-6 col-md-7 col-12">
+                            <ul class="top-contact">
+                                <li><i class="fa fa-phone"></i>+880 1234 56789</li>
+                                <li><i class="fa fa-envelope"></i><a href="mailto:support@yourmail.com">support@yourmail.com</a></li>
+                            </ul>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header-inner">
+                <div class="container">
+                    <div class="inner">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-12">
+                                <div class="logo">
+                                    <a href="<?php echo $base_url; ?>/default.php"><img src="<?php echo $base_url; ?>/templates-parts/assets/img/logo.png" alt="#"></a>
+                                </div>
+                                <div class="mobile-nav"></div>
+                                </div>
+                            <div class="col-lg-7 col-md-9 col-12">
+                                <div class="main-menu">
+                                    <nav class="navigation">
+                                        <ul class="nav menu">
+                                            <li class="active"><a href="<?php echo $base_url; ?>/default.php">Home <i class="icofont-rounded-down"></i></a>
+                                                <ul class="dropdown">
+                                                    <li><a href="<?php echo $base_url; ?>/default.php">Home Page 1</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="<?php echo $base_url; ?>/doutores.php">Doutores </a></li>
+                                            <li><a href="<?php echo $base_url; ?>/servicos.php">Serviços </a></li>
+                                            <li><a href="#">Paginas<i class="icofont-rounded-down"></i></a>
+                                                <ul class="dropdown">
+                                                    <li><a href="<?php echo $base_url; ?>/404.html">404 Error</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">Blog<i class="icofont-rounded-down"></i></a>
+                                                <ul class="dropdown">
+                                                    <li><a href="<?php echo $base_url; ?>/blog-single.php">Blog Details</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="<?php echo $base_url; ?>/contato.php">Contato</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                </div>
+                            <div class="col-lg-2 col-12">
+                                <div class="get-quote">
+                                    <a href="<?php echo $base_url; ?>/controle/login.php" class="btn">painel do cliente</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </header>
