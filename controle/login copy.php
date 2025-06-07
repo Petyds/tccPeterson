@@ -1,6 +1,8 @@
 <?php
 session_start();
 require 'conexao.php';
+include 'header.php'; // Inclui o cabeçalho do site
+//include '../css/bootstrap.php'; // Inclui o CSS do Bootstrap
 
 $erro_login = ''; // Variável para armazenar mensagens de erro
 
@@ -29,18 +31,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                         // Redireciona com base no tipo (agora usando o tipo do banco de dados)
                         switch ($user['tipo']) {
-                           
                             case 'admin':
-                                header("Location: /site/controle/dashboard/admin.php");
+                                header("Location: dashboard/admin.php");
                                 break;
                             case 'medico':
-                                header("Location: /site/controle/dashboard/medico.php");
+                                header("Location: dashboard/medico.php");
                                 break;
                             case 'paciente':
-                                header("Location: /site/controle/dashboard/paciente.php");
+                                header("Location: dashboard/paciente.php");
                                 break;
                             case 'recepcionista':
-                                header("Location: /site/controle/dashboard/recepcionista.php");
+                                header("Location: dashboard/recepcionista.php");
                                 break;
                             default:
                                 $erro_login = '<div class="alert alert-danger mt-3" role="alert">Tipo de usuário desconhecido.</div>';
@@ -66,8 +67,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <!DOCTYPE html>
 <html lang="pt-br">
-    <?php include '../templates-parts/header.php'; // Inclui o cabeçalho do site ?>
-     <style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Sistema de Hospital</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
         .password-toggle {
             cursor: pointer;
             position: absolute;
@@ -76,8 +81,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             transform: translateY(-50%);
         }
     </style>
-
-
+</head>
+<body>
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
@@ -131,4 +136,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             this.querySelector('i').classList.toggle('fa-eye-slash');
         });
     </script>
-<?php include '../templates-parts/footer.php'; // Inclui o rodapé do site ?>
+</body>
+</html>

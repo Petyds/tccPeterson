@@ -28,12 +28,20 @@ $result = $conn->query($sql);
 
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Listar Usuários</title>
-    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-</head>
-<body class="container mt-5">
+
+<?php include '../../templates-parts/header.php'; // Inclui o cabeçalho do site ?>
+
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Gerenciar Usuários</h1>
+        <?php if (isset($_SESSION['mensagem'])): ?>
+            <div class="alert alert-success">
+                <?= htmlspecialchars($_SESSION['mensagem']) ?>
+            </div>
+            <?php unset($_SESSION['mensagem']); ?>
+        <?php endif; ?>
+        
+        <a href="cadastrar_usuario.php" class="btn btn-success mb-3">Cadastrar Novo Usuário</a>
     <h2 class="mb-4">Usuários Ativos</h2>
     <table class="table table-bordered">
         <thead>
@@ -55,5 +63,7 @@ $result = $conn->query($sql);
             <?php endwhile; ?>
         </tbody>
     </table>
+    </div>
+<?php include '../../templates-parts/footer.php'; // Inclui o rodapé do site ?>
 </body>
 </html>

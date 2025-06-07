@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Cadastro de Paciente</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<?php include '../templates-parts/header.php'; // Inclui o cabeçalho do site ?>
     <script>
     function validarFormulario() {
         var campos = document.querySelectorAll('input[required], select[required]');
@@ -16,9 +11,7 @@
         return true;
     }
     </script>
-</head>
-<body>
-<div class="container mt-5">
+<div class="container mt-5 respiro">
     <h2>Cadastro de Paciente</h2>
     <form method="POST" onsubmit="return validarFormulario()">
         
@@ -55,5 +48,4 @@ $(document).ready(function(){
     $('input[name="telefone"]').mask('(00) 00000-0000');
 });
 </script>
-</body>
-</html>
+<?php include '../templates-parts/footer.php'; // Inclui o rodapé do site ?>

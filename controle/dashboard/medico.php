@@ -24,14 +24,10 @@ try {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Painel do Médico</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-<body class="container mt-5">
+
+    <?php include '../../templates-parts/header.php'; // Inclui o cabeçalho do site ?>
+   
+<div class="container mt-5">
     <h2>Olá, Dr(a). <?= htmlspecialchars($medico_nome) ?>! Bem-vindo(a) ao seu painel.</h2>
 
     <h3 class="mt-4">Minhas Consultas</h3>
@@ -64,8 +60,8 @@ try {
             </table>
         </div>
     <?php endif; ?>
+</div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+    <?php include '../../templates-parts/footer.php'; // Inclui o rodapé do site ?>

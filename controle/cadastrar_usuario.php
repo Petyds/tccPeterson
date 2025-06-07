@@ -60,30 +60,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 ?>
 
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastrar Usuário | Sistema de Hospital</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .container {
-            max-width: 576px; /* Largura similar ao formulário de login */
-            margin-top: 50px;
-        }
 
+<?php include '../templates-parts/header.php'; // Inclui o cabeçalho do site ?>
+   <style>
+         
         .error-message {
             color: red;
             font-size: 0.8em;
             margin-top: 0.2rem;
         }
     </style>
-</head>
-<body>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-12">
+
+    
+            <div class="container mt-5"> 
                 <h3>Cadastrar Usuário</h3>
                 <hr>
                 <?php echo $sucesso; ?>
@@ -124,9 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <p class="mt-3"><a href="login.php">Voltar para o Login</a></p>
                 </form>
             </div>
-        </div>
-    </div>
-
+<?php include '../templates-parts/footer.php'; // Inclui o cabeçalho do site ?>
     <script>
         function validarFormulario() {
             let valido = true;
@@ -172,5 +159,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             return valido;
         }
     </script>
-</body>
-</html>

@@ -1,6 +1,6 @@
 <?php
 require '../proteger.php';
-proteger(['admin']);
+ proteger(['admin']);
 require '../conexao.php';
 
 $admin_nome = $_SESSION['nome'];
@@ -32,13 +32,12 @@ if (isset($_GET['desativar_id']) && is_numeric($_GET['desativar_id'])) {
 
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel do Administrador</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-<body class="container mt-5">
+<?php 
+
+ include '../../templates-parts/header.php'; // Inclui o cabeçalho do site';
+
+?>
+<div class="container mt-5">
     <h2>Painel do Administrador</h2>
     <p class="lead">Bem-vindo(a), <?= htmlspecialchars($admin_nome) ?>! Aqui você pode gerenciar os usuários do sistema.</p>
 
@@ -81,12 +80,12 @@ if (isset($_GET['desativar_id']) && is_numeric($_GET['desativar_id'])) {
     <?php endif; ?>
 
     <h3 class="mt-4">Ações Administrativas</h3>
-    <div class="row">
+    <div class="row respiro">
         <div class="col-md-3">
             <a href="../cadastrar_usuario.php" class="btn btn-success btn-block">Cadastrar Usuário</a>
         </div>
         </div>
-
+</div>
     <script>
         function confirmDesativar(id) {
             if (confirm("Tem certeza que deseja desativar este usuário?")) {
@@ -98,5 +97,9 @@ if (isset($_GET['desativar_id']) && is_numeric($_GET['desativar_id'])) {
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
+
+    <?php 
+
+ include '../../templates-parts/footer.php'; // Inclui o cabeçalho do site';
+
+?>
